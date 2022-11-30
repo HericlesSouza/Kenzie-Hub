@@ -9,9 +9,12 @@ export const GlobalStyle = createGlobalStyle`
         --grey-3: #212529;
         --grey-2: #343B41;
         --grey-1: #868E96;
-        --white: #ffffff
+        --grey-0: #f8f9fa;
+        --white: #ffffff;
 
         --title-1: 1rem;
+        --title-2: 1.125rem;
+        --title-3: 1.5rem;
         --headline: 0.75rem;
 
         --font-weight-1: 500;
@@ -35,14 +38,20 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         list-style: none;
         font-family: 'Inter', sans-serif;
+    }
+
+    button {
         cursor: pointer;
     }
 
     body, html {
         width: 100vw;
         height: 100vh;
+        background-color:var(--grey-4);
     }
-  
 
-
+    #root {
+        width: 100%;
+        height: 100%;
+    }
 `;

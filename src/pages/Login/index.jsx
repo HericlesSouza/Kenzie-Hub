@@ -24,7 +24,6 @@ export const Login = () => {
         <span>Ainda não possui uma conta?</span>
         <Button color={"btnGreyLight"} size={"medium"}>Cadastre-se</Button>
       </StyledForm>
-      <p></p>
     </StyledDiv>
   );
 };

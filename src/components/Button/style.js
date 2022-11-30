@@ -15,11 +15,11 @@ export const StyledButton = styled.button`
 
           :hover {
             background: var(--color-primary-focus);
-            border: 1.2182px solid var(--color-primary-focus);
+            border: 1px solid var(--color-primary-focus);
           }
         `;
-        
-      case "btnGrey":
+
+      case "btnGreyDark":
         return css`
           background: var(--grey-2);
           border: 1px solid var(--grey-2);
@@ -30,6 +30,17 @@ export const StyledButton = styled.button`
           }
         `;
 
+      case "btnGreyLight":
+        return css`
+          background: var(--grey-1);
+          border: 1px solid var(--grey-1);
+
+          :hover {
+            background: var(--grey-2);
+            border: 1px solid var(--grey-2);
+          }
+        `;
+        
       case "btnDisabled":
         return css`
           background: var(--color-primary-negative);
