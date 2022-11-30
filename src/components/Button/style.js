@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const StyledButton = styled.button`
-  width: 100%;
+  width: ${({ buttonWidth }) => buttonWidth || "100%"};
   text-align: center;
   border-radius: var(--border-radius);
   color: var(--white);
@@ -40,7 +40,7 @@ export const StyledButton = styled.button`
             border: 1px solid var(--grey-2);
           }
         `;
-        
+
       case "btnDisabled":
         return css`
           background: var(--color-primary-negative);

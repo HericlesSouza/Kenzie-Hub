@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledInput = styled.input`
+export const StyledSelect = styled.select`
   width: 100%;
   padding: 10.5px 16.5px;
   background: var(--grey-2);

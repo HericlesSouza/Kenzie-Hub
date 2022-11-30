@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const StyledDiv = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@ export const StyledDiv = styled.div`
 
 export const StyledForm = styled.form`
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   padding: 42px 22.5px;
   display: flex;
   flex-direction: column;
