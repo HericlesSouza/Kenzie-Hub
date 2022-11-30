@@ -15,7 +15,9 @@ export const GlobalStyle = createGlobalStyle`
         --title-1: 1rem;
         --title-2: 1.125rem;
         --title-3: 1.5rem;
+        --title-4: 1.25rem;
         --headline: 0.75rem;
+        --headline-1: 0.875rem;
 
         --font-weight-1: 500;
         --font-weight-2: 600;
