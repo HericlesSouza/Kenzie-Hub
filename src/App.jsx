@@ -1,10 +1,13 @@
-import { useState } from 'react'
+import { GlobalStyle } from "./styles/GlobalStyle";
+import { RoutesMain as Routes } from "./routes";
 
 function App() {
-  
   return (
-   <div></div>
-  )
+    <>
+      <GlobalStyle />
+      <Routes />
+    </>
+  );
 }
 
-export default App
+export default App;
