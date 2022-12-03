@@ -1,8 +1,15 @@
 import { StyledButton } from "./style";
 
-export const Button = ({ children, color, size, width }) => {
+export const Button = ({ children, color, size, width, type, click}) => {
+
+  function onClickButton(event) {
+    if(click) {
+      event
+    }
+  }
+
   return (
-    <StyledButton buttonColor={color} buttonSize={size} buttonWidth={width}>
+    <StyledButton onClick={() => onClickButton(click)} type={type} buttonColor={color} buttonSize={size} buttonWidth={width}>
       {children}
     </StyledButton>
   );

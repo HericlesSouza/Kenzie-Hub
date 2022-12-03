@@ -52,4 +52,32 @@ export const StyledForm = styled.form`
     line-height: 14px;
     color: var(--grey-1);
   }
+
+  a {
+    margin-top: 20px;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    border-radius: var(--border-radius);
+    color: var(--white);
+    background: var(--grey-2);
+    border: 1px solid var(--grey-2);
+
+    :hover {
+      background: var(--grey-1);
+      border: 1px solid var(--grey-1);
+    }
+    font-weight: var(--font-weight-1);
+    font-size: var(--title-1);
+    line-height: 26px;
+    padding: 11px 22px;
+  }
+
+  .error {
+    color: var(--color-primary);
+    margin-left: 10px;
+    margin-top: 5px;
+    font-weight: var(--font-weight-2);
+    font-size: var(--headline-1);
+  }
 `;
