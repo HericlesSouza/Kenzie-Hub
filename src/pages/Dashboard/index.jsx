@@ -39,7 +39,7 @@ export const Dashboard = () => {
   };
 
   return (
-    <StyledDiv className="animate__animated animate__bounceInLeft">
+    <StyledDiv className="animate__animated animate__fadeInLeftBig">
       <header>
         <div className="container">
           <img src={Logo} alt="Logo Kenzie Hub" />

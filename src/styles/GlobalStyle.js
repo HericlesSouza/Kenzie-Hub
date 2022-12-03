@@ -35,8 +35,6 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     * {
-        overflow-x: hidden;
-        overflow-y: hidden;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
