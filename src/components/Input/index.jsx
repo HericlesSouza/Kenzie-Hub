@@ -1,7 +1,7 @@
-import { StyledInput } from "./style"
+import { StyledInput } from "./style";
 
-export const Input = ({children}) => {
-    return (
-        <StyledInput>{children}</StyledInput>
-    )
-}
+export const Input = ({ type, placeholder, id, register }) => {
+  return (
+    <StyledInput id={id} type={type} placeholder={placeholder} {...register} />
+  );
+};

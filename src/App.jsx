@@ -1,10 +1,15 @@
-import { useState } from 'react'
+import { GlobalStyle } from "./styles/GlobalStyle";
+import { RoutesMain as Routes } from "./routes";
+import {ToastContainer} from "react-toastify"
 
 function App() {
-  
   return (
-   <div></div>
-  )
+    <>
+      <ToastContainer/>
+      <GlobalStyle />
+      <Routes />
+    </>
+  );
 }
 
-export default App
+export default App;
