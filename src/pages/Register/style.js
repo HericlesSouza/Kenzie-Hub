@@ -1,5 +1,25 @@
 import styled from "styled-components";
+import InputMask from 'react-input-mask';
 
+export const StyledInputMask = styled(InputMask)`
+  width: 100%;
+  padding: 10.5px 16.5px;
+  background: var(--grey-2);
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+  font-size: var(--title-1);
+  line-height: 26px;
+  color: var(--grey-0);
+  
+  :focus {
+    outline: none;
+    border: 2px solid var(--grey-0);
+  }
+
+  ::placeholder {
+    color: var(--grey-1);
+  }
+`
 export const StyledDiv = styled.div`
   width: 100%;
   height: 100%;
@@ -15,6 +35,26 @@ export const StyledDiv = styled.div`
     max-width: 400px;
     display: flex;
     justify-content: space-between;
+  }
+
+  a {
+    text-align: center;
+    border-radius: var(--border-radius);
+    color: var(--white);
+    text-decoration: none;
+    width: max-content;
+    background: var(--grey-2);
+    border: 1px solid var(--grey-2);
+
+    :hover {
+      background: var(--grey-1);
+      border: 1px solid var(--grey-1);
+    }
+
+    font-weight: var(--font-weight-2);
+    font-size: var(--headline);
+    line-height: 28px;
+    padding: 8px 16px;
   }
 `;
 
@@ -60,5 +100,13 @@ export const StyledForm = styled.form`
     font-size: var(--headline);
     line-height: 14px;
     color: var(--grey-1);
+  }
+
+  .error {
+    color: var(--color-primary);
+    margin-left: 10px;
+    margin-top: 5px;
+    font-weight: var(--font-weight-2);
+    font-size: var(--headline-1);
   }
 `;
