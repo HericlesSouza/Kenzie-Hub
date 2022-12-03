@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import 'animate.css';
 
 export const Register = () => {
   const [registerError, setRegisterError] = useState(false);
@@ -68,7 +69,6 @@ export const Register = () => {
   });
 
   const submit = async (data) => {
-    console.log(data)
     setRegisterError(false);
     delete data.passwordConfirmed;
     await userRegister(data);
@@ -79,7 +79,7 @@ export const Register = () => {
   };
 
   return (
-    <StyledDiv className="container">
+    <StyledDiv className="container animate__animated animate__bounceInLeft">
       <div>
         <img src={Logo} alt="Kenzie Hub Logo" />
         <Link to={"/"}>Voltar</Link>
