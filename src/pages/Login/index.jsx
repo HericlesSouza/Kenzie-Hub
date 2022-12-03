@@ -7,13 +7,25 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "./loginSchema";
 import { api } from "../../services/api";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import 'animate.css';
 
 export const Login = () => {
   const [registerError, setRegisterError] = useState(false);
+  const [checkUserLogged, setCheckUserLogged] = useState(false);
   const navigate = useNavigate();
+  const userLogged = JSON.parse(localStorage.getItem("@userLogged"));
+
+  useEffect(() => {
+    if (userLogged) {
+      setCheckUserLogged(true);
+    }
+    if (checkUserLogged) {
+      navigate("/dashboard");
+    }
+  }, [checkUserLogged]);
 
   const userLogin = async (infoUser) => {
     const id = toast.loading("Por favor espere...");
@@ -32,7 +44,9 @@ export const Login = () => {
         draggable: true,
         progress: undefined,
       });
-      console.log(request)
+    
+      const userLogged = {token: request.data.token, id: request.data.user.id}
+      localStorage.setItem('@userLogged', (JSON.stringify(userLogged)))
       setTimeout(() => {
         navigate("/dashboard");
       }, 1400);
@@ -71,11 +85,10 @@ export const Login = () => {
     reset({
       password: "",
     });
-    console.log(data);
   };
 
   return (
-    <StyledDiv className="container">
+    <StyledDiv className="container animate__animated animate__bounceInLeft">
       <img src={Logo} alt="Kenzie Hub Logo" />
       <StyledForm onSubmit={handleSubmit(submit)} noValidate>
         <h2>Login</h2>
