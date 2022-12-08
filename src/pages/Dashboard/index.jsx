@@ -1,9 +1,12 @@
-import { StyledDiv } from "./style";
+import { PersonButton, StyledDiv, Trash } from "./style";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/Kenzie_Hub.svg";
 import { useState, useEffect } from "react";
 import { api } from "../../services/api";
 import "animate.css";
+import { Button } from "../../components/Button";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import { BsTrash } from "react-icons/bs";
 
 export const Dashboard = () => {
   const [infoUser, setInfoUser] = useState({});
@@ -55,10 +58,88 @@ export const Dashboard = () => {
         </div>
       </section>
       <section className="container">
-        <h2>Que pena! Estamos em desenvolvimento :(</h2>
-        <p>
-          Nossa aplicação está em desenvolvimento, em breve teremos novidades
-        </p>
+        <div>
+          <h2>Tecnologias</h2>
+          <Button type="button" color="btnGreyDark" size="small" width="32">
+            <AiOutlinePlusCircle size={"30px"} />
+          </Button>
+        </div>
+        <div className="div-list-technologies">
+          <ul>
+            <li>
+              <h2>React JS</h2>
+              <div>
+                <span>Intermediário</span>
+                <button>
+                  <Trash />
+                </button>
+              </div>
+            </li>
+            <li>
+              <h2>React JS</h2>
+              <div>
+                <span>Intermediário</span>
+                <button>
+                  <Trash />
+                </button>
+              </div>
+            </li>
+            <li>
+              <h2>React JS</h2>
+              <div>
+                <span>Intermediário</span>
+                <button>
+                  <Trash />
+                </button>
+              </div>
+            </li>
+            <li>
+              <h2>React JS</h2>
+              <div>
+                <span>Intermediário</span>
+                <button>
+                  <Trash />
+                </button>
+              </div>
+            </li>
+            <li>
+              <h2>React JS</h2>
+              <div>
+                <span>Intermediário</span>
+                <button>
+                  <Trash />
+                </button>
+              </div>
+            </li>
+            <li>
+              <h2>React JS</h2>
+              <div>
+                <span>Intermediário</span>
+                <button>
+                  <Trash />
+                </button>
+              </div>
+            </li>
+            <li>
+              <h2>React JS</h2>
+              <div>
+                <span>Intermediário</span>
+                <button>
+                  <Trash />
+                </button>
+              </div>
+            </li>
+            <li>
+              <h2>React JS</h2>
+              <div>
+                <span>Intermediário</span>
+                <button>
+                  <Trash />
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
     </StyledDiv>
   );

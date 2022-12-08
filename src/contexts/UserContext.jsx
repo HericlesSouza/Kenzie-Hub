@@ -9,7 +9,6 @@ export const UserContext = createContext({});
 export const UserProvider = ({ children }) => {
   const [registerError, setRegisterError] = useState(false);
 
-  console.log(registerError);
   // const [checkUserLogged, setCheckUserLogged] = useState(false);
   // const userLogged = JSON.parse(localStorage.getItem("@userLogged"));
   const navigate = useNavigate();

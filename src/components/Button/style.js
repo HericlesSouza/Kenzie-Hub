@@ -55,7 +55,6 @@ export const StyledButton = styled.button`
         return css`
           font-weight: var(--font-weight-2);
           font-size: var(--headline);
-          line-height: 28px;
           padding: 8px 16px;
         `;
 
@@ -63,9 +62,12 @@ export const StyledButton = styled.button`
         return css`
           font-weight: var(--font-weight-1);
           font-size: var(--title-1);
-          line-height: 26px;
           padding: 11px 22px;
         `;
     }
   }}
+
+  font-weight: var(--font-weight-2);
+  font-size: var(--headline);
+  padding: 8px;
 `;

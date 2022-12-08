@@ -1,4 +1,4 @@
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../../assets/Kenzie_Hub.svg";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
@@ -12,11 +12,12 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
 export const Login = () => {
-  const {navigate, userLogin, registerError, setRegisterError} = useContext(UserContext)
+  const { navigate, userLogin, registerError, setRegisterError } =
+    useContext(UserContext);
 
   const [checkUserLogged, setCheckUserLogged] = useState(false);
   const userLogged = JSON.parse(localStorage.getItem("@userLogged"));
-  
+
   useEffect(() => {
     if (userLogged) {
       setCheckUserLogged(true);
@@ -24,7 +25,7 @@ export const Login = () => {
     if (checkUserLogged) {
       navigate("/dashboard");
     }
-    setRegisterError(false)
+    setRegisterError(false);
   }, [checkUserLogged]);
 
   const {
@@ -39,8 +40,7 @@ export const Login = () => {
 
   const submit = async (data) => {
     setRegisterError(false);
-    console.log("oi");
-    console.log(registerError);
+    registerError;
     await userLogin(data);
     reset({
       password: "",
