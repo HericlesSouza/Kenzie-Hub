@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Logo from "../../assets/Kenzie_Hub.svg";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
@@ -8,56 +7,17 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./registerSchema";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import { api } from "../../services/api";
-import { useNavigate } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
+import { useEffect } from "react";
 import 'animate.css';
 
 export const Register = () => {
-  const [registerError, setRegisterError] = useState(false);
-  const navigate = useNavigate();
-
-  const userRegister = async (infoUser) => {
-    const id = toast.loading("Por favor espere...");
-    try {
-      await api.post("/users", infoUser);
-
-      toast.update(id, {
-        render: "Conta criada com sucesso!",
-        type: "success",
-        isLoading: false,
-        theme: "dark",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-
-      setTimeout(() => {
-        navigate("/");
-      }, 3400);
-    } catch (error) {
-      if (error.response.data.message === "Email already exists") {
-        setRegisterError(true);
-        toast.update(id, {
-          render: "Endereço de e-mail já existe!",
-          type: "error",
-          isLoading: false,
-          theme: "dark",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      }
-    }
-  };
-
+  const {registerError, setRegisterError, userRegister} = useContext(UserContext)
+  
+  useEffect(() => {
+    setRegisterError(false)
+  }, [])
   const {
     register,
     handleSubmit,
