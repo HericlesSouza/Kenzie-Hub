@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../../assets/Kenzie_Hub.svg";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
@@ -6,17 +6,16 @@ import { StyledDiv, StyledForm } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "./loginSchema";
-import { api } from "../../services/api";
 import { useState, useEffect } from "react";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import 'animate.css';
+import "animate.css";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
 export const Login = () => {
-  const [registerError, setRegisterError] = useState(false);
+  const { navigate, userLogin, registerError, setRegisterError, userLogged } =
+    useContext(UserContext);
+
   const [checkUserLogged, setCheckUserLogged] = useState(false);
-  const navigate = useNavigate();
-  const userLogged = JSON.parse(localStorage.getItem("@userLogged"));
 
   useEffect(() => {
     if (userLogged) {
@@ -25,49 +24,8 @@ export const Login = () => {
     if (checkUserLogged) {
       navigate("/dashboard");
     }
+    setRegisterError(false);
   }, [checkUserLogged]);
-
-  const userLogin = async (infoUser) => {
-    const id = toast.loading("Por favor espere...");
-    try {
-      const request = await api.post("/sessions", infoUser);
-
-      toast.update(id, {
-        render: "Login efetuado com sucesso!",
-        type: "success",
-        isLoading: false,
-        theme: "dark",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    
-      const userLogged = {token: request.data.token, id: request.data.user.id}
-      localStorage.setItem('@userLogged', (JSON.stringify(userLogged)))
-      setTimeout(() => {
-        navigate("/dashboard");
-      }, 1400);
-    } catch (error) {
-  
-        setRegisterError(true);
-        toast.update(id, {
-          render: "Ops! Algo deu errado!",
-          type: "error",
-          isLoading: false,
-          theme: "dark",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      
-    }
-  };
 
   const {
     register,
@@ -81,6 +39,7 @@ export const Login = () => {
 
   const submit = async (data) => {
     setRegisterError(false);
+    registerError;
     await userLogin(data);
     reset({
       password: "",
