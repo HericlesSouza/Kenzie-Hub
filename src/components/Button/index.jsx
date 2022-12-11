@@ -9,7 +9,7 @@ export const Button = ({ children, color, size, width, type, click}) => {
   }
 
   return (
-    <StyledButton onClick={() => onClickButton(click)} type={type} buttonColor={color} buttonSize={size} buttonWidth={width}>
+    <StyledButton onClick={click} type={type} buttonColor={color} buttonSize={size} buttonWidth={width}>
       {children}
     </StyledButton>
   );

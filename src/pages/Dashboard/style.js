@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { BsTrash } from "react-icons/bs";
 import { Button } from "../../components/Button";
+import {FiAlertTriangle} from "react-icons/fi"
 
 export const StyledDiv = styled.div`
   header {
@@ -73,7 +74,7 @@ export const StyledDiv = styled.div`
     padding: 0 20px;
     margin-top: 26px;
 
-    div:nth-child(1) {
+    & > div {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -91,6 +92,15 @@ export const StyledDiv = styled.div`
       }
     }
 
+    .no-technologies {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--grey-0);
+      gap: 20px;
+    }
+
     .div-list-technologies {
       margin-top: 31px;
       width: 100%;
@@ -98,13 +108,25 @@ export const StyledDiv = styled.div`
       max-height: 500px;
       background-color: var(--grey-3);
       border-radius: var(--border-radius);
-      overflow-y: auto;
 
       ul {
+        width: 100%;
+        max-height: 500px;
         display: flex;
         flex-direction: column;
         gap: 16px;
         padding: 23px;
+        overflow-y: auto;
+
+        ::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background-color: var(--color-primary);
+          border-radius: 20px;
+          border: 3px solid var(--color-primary);
+        }
       }
 
       ul > li {
@@ -160,13 +182,6 @@ export const StyledDiv = styled.div`
         }
       }
     }
-
-    p {
-      margin-top: 23px;
-      font-size: var(--title-1);
-      line-height: 24px;
-      color: var(--white);
-    }
   }
 `;
 
@@ -179,10 +194,14 @@ export const Trash = styled(BsTrash)`
     color: var(--grey-0);
     cursor: pointer;
   }
-`
+`;
 
 export const PersonButton = styled(Button)`
   background-color: blue;
+`;
+
+export const Alert = styled(FiAlertTriangle)`
+  color: var(--color-primary);
+  width: 100px;
+  height: 100px;
 `
-
-

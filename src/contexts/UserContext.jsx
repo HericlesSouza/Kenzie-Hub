@@ -8,10 +8,12 @@ export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
   const [registerError, setRegisterError] = useState(false);
-
-  // const [checkUserLogged, setCheckUserLogged] = useState(false);
-  // const userLogged = JSON.parse(localStorage.getItem("@userLogged"));
+  const userLogged = JSON.parse(localStorage.getItem("@userLogged"));
   const navigate = useNavigate();
+
+  const clearLocalStorage = () => {
+    localStorage.clear();
+  };
 
   const userRegister = async (infoUser) => {
     const id = toast.loading("Por favor espere...");
@@ -98,7 +100,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ registerError, setRegisterError, navigate, userRegister, userLogin }}
+      value={{ clearLocalStorage, registerError, setRegisterError, navigate, userRegister, userLogin, userLogged }}
     >
       {children}
     </UserContext.Provider>

@@ -12,11 +12,10 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
 export const Login = () => {
-  const { navigate, userLogin, registerError, setRegisterError } =
+  const { navigate, userLogin, registerError, setRegisterError, userLogged } =
     useContext(UserContext);
 
   const [checkUserLogged, setCheckUserLogged] = useState(false);
-  const userLogged = JSON.parse(localStorage.getItem("@userLogged"));
 
   useEffect(() => {
     if (userLogged) {

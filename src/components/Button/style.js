@@ -64,10 +64,13 @@ export const StyledButton = styled.button`
           font-size: var(--title-1);
           padding: 11px 22px;
         `;
+
+      default:
+        return css`
+          font-weight: var(--font-weight-2);
+          font-size: var(--headline);
+          padding: 8px;
+        `;
     }
   }}
-
-  font-weight: var(--font-weight-2);
-  font-size: var(--headline);
-  padding: 8px;
 `;
