@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledInput = styled.input`
   width: 100%;
@@ -10,6 +10,15 @@ export const StyledInput = styled.input`
   line-height: 26px;
   color: var(--grey-0);
   
+  ${({ color }) => {
+    switch (color) {
+      case "disabled":
+        return css`
+          color: #868e96;
+        `;
+    }
+  }}
+
   :focus {
     outline: none;
     border: 2px solid var(--grey-0);
