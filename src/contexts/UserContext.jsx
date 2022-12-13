@@ -25,7 +25,7 @@ export const UserProvider = ({ children }) => {
         type: "success",
         isLoading: false,
         theme: "dark",
-        autoClose: 3000,
+        autoClose: 1500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -33,9 +33,7 @@ export const UserProvider = ({ children }) => {
         progress: undefined,
       });
 
-      setTimeout(() => {
-        navigate("/");
-      }, 3400);
+      navigate("/");
     } catch (error) {
       if (error.response.data.message === "Email already exists") {
         setRegisterError(true);
@@ -78,9 +76,8 @@ export const UserProvider = ({ children }) => {
         id: request.data.user.id,
       };
       localStorage.setItem("@userLogged", JSON.stringify(userLogged));
-      setTimeout(() => {
-        navigate("/dashboard");
-      }, 1400);
+
+      navigate("/dashboard");
     } catch (error) {
       setRegisterError(true);
       toast.update(id, {
@@ -100,7 +97,15 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ clearLocalStorage, registerError, setRegisterError, navigate, userRegister, userLogin, userLogged }}
+      value={{
+        clearLocalStorage,
+        registerError,
+        setRegisterError,
+        navigate,
+        userRegister,
+        userLogin,
+        userLogged,
+      }}
     >
       {children}
     </UserContext.Provider>

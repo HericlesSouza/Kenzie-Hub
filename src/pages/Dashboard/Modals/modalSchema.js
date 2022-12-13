@@ -1,8 +1,4 @@
-import { useContext } from "react";
 import * as yup from "yup";
-import { TechContext } from "../../../contexts/TechContext";
-
-
 
 export const createTechnologySchema = yup.object().shape({
   title: yup.string().required("Campo obrigatório"),

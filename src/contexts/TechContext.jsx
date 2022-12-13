@@ -21,9 +21,7 @@ export const TechProvider = ({ children }) => {
       try {
         const request = await api.get(`/users/${userLogged.id}`);
         setListTechnologies(request.data.techs);
-      } catch (error) {
-        console.error(error);
-      }
+      } catch (error) {}
     })();
   }, [modalCreate, modalEdit]);
 
@@ -60,8 +58,6 @@ export const TechProvider = ({ children }) => {
         draggable: true,
         progress: undefined,
       });
-
-      console.error(error);
     }
   };
 
@@ -78,7 +74,7 @@ export const TechProvider = ({ children }) => {
     const id = toast.loading("Por favor espere...");
     try {
       api.defaults.headers.common.authorization = `Bearer ${userLogged.token}`;
-      await api.put(`/users/techs/${technologySelected.id}`, data);
+      await api.post(`/users/techs/${technologySelected.id}`, data);
       toast.update(id, {
         render: "Tecnologia atualizada com sucesso!",
         type: "success",
@@ -94,7 +90,18 @@ export const TechProvider = ({ children }) => {
 
       setModalEdit(false);
     } catch (error) {
-      console.error(error);
+      toast.update(id, {
+        render: "Ops, algo deu errado!",
+        type: "success",
+        isLoading: false,
+        theme: "dark",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 
@@ -117,10 +124,21 @@ export const TechProvider = ({ children }) => {
         draggable: true,
         progress: undefined,
       });
-      
+
       setModalEdit(false);
     } catch (error) {
-      console.error(error);
+      toast.update(id, {
+        render: "Ops, algo deu errado!",
+        type: "success",
+        isLoading: false,
+        theme: "dark",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
   return (

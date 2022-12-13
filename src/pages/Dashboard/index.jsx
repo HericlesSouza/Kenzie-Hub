@@ -38,7 +38,6 @@ export const Dashboard = () => {
           const request = await api.get(`/users/${userLogged.id}`);
           setInfoUser(request.data);
         } catch (error) {
-          console.error(error);
         }
       };
       checkUser();
