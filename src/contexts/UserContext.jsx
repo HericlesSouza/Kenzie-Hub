@@ -33,7 +33,10 @@ export const UserProvider = ({ children }) => {
         progress: undefined,
       });
 
-      navigate("/");
+      setTimeout(() => {
+        navigate("/");
+      }, 1800);
+      
     } catch (error) {
       if (error.response.data.message === "Email already exists") {
         setRegisterError(true);
@@ -48,6 +51,7 @@ export const UserProvider = ({ children }) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
+          closeButton: CloseButton
         });
       }
     }
@@ -76,8 +80,9 @@ export const UserProvider = ({ children }) => {
         id: request.data.user.id,
       };
       localStorage.setItem("@userLogged", JSON.stringify(userLogged));
-
-      navigate("/dashboard");
+      
+        navigate("/dashboard");
+      
     } catch (error) {
       setRegisterError(true);
       toast.update(id, {

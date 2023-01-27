@@ -10,14 +10,15 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { useEffect } from "react";
-import 'animate.css';
+import "animate.css";
 
 export const Register = () => {
-  const {registerError, setRegisterError, userRegister} = useContext(UserContext)
-  
+  const { registerError, setRegisterError, userRegister } =
+    useContext(UserContext);
+
   useEffect(() => {
-    setRegisterError(false)
-  }, [])
+    setRegisterError(false);
+  }, []);
   const {
     register,
     handleSubmit,
@@ -99,9 +100,14 @@ export const Register = () => {
         {errors.bio && <p className="error">{errors.bio.message}</p>}
 
         <label htmlFor="contact">Contato</label>
-        <StyledInputMask placeholder="(XX) XXXXX-XXXX" mask=" (99) 99999-9999" maskChar="_" {...register("contact")}/>
+        <StyledInputMask
+          placeholder="(XX) XXXXX-XXXX"
+          mask=" (99) 99999-9999"
+          maskChar="_"
+          {...register("contact")}
+        />
         {errors.contact && <p className="error">{errors.contact.message}</p>}
-        
+
         <label htmlFor="course_module">Selecionar módulo</label>
         <Select id={"course_module"} register={register("course_module")}>
           <option value="" hidden>

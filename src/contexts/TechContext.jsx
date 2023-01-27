@@ -23,6 +23,7 @@ export const TechProvider = ({ children }) => {
         setListTechnologies(request.data.techs);
       } catch (error) {}
     })();
+    
   }, [modalCreate, modalEdit]);
 
   const createTechnologies = async (data) => {
@@ -74,7 +75,7 @@ export const TechProvider = ({ children }) => {
     const id = toast.loading("Por favor espere...");
     try {
       api.defaults.headers.common.authorization = `Bearer ${userLogged.token}`;
-      await api.post(`/users/techs/${technologySelected.id}`, data);
+      await api.put(`/users/techs/${technologySelected.id}`, data);
       toast.update(id, {
         render: "Tecnologia atualizada com sucesso!",
         type: "success",
