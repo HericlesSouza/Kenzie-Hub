@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledUL = styled.ul`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 16px;
   margin-top: 24px;
   padding: 22px 9px;

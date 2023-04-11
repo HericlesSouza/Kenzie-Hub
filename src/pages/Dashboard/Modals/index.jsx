@@ -100,6 +100,8 @@ export const ModalEditTechnologies = () => {
     editTechnologies({ status: `${data.status}` });
   };
 
+  console.log({...register('teste')})
+
   return (
     <Modal>
       <StyledForm className="container animate__animated animate__fadeInDown">

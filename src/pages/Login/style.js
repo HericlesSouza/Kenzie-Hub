@@ -62,15 +62,16 @@ export const StyledForm = styled.form`
     color: var(--white);
     background: var(--grey-2);
     border: 1px solid var(--grey-2);
+    font-weight: var(--font-weight-1);
+    font-size: var(--title-1);
+    line-height: 26px;
+    padding: 11px 22px;
 
     :hover {
       background: var(--grey-1);
       border: 1px solid var(--grey-1);
     }
-    font-weight: var(--font-weight-1);
-    font-size: var(--title-1);
-    line-height: 26px;
-    padding: 11px 22px;
+    
   }
 
   .error {
