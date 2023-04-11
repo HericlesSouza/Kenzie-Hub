@@ -20,12 +20,13 @@ export const Dashboard = () => {
     modalEdit,
     openModalEditTechnologies,
   } = useContext(TechContext);
-  const { userLogged, navigate, clearLocalStorage} = useContext(UserContext);
+  const { userLogged, navigate, clearLocalStorage } = useContext(UserContext);
 
   useEffect(() => {
     if (!userLogged) {
       setCheckUserLogged(false);
     }
+    
     if (!checkUserLogged) {
       navigate("/");
     }
@@ -37,8 +38,7 @@ export const Dashboard = () => {
         try {
           const request = await api.get(`/users/${userLogged.id}`);
           setInfoUser(request.data);
-        } catch (error) {
-        }
+        } catch (error) {}
       };
       checkUser();
     }
@@ -75,10 +75,8 @@ export const Dashboard = () => {
         </div>
         {listTechnologies.length === 0 ? (
           <div className="no-technologies">
-            <Alert/>
-            <h1>
-              Não conseguimos encontrar nenhuma tecnologia cadastrada.
-            </h1>
+            <Alert />
+            <h1>Não conseguimos encontrar nenhuma tecnologia cadastrada.</h1>
           </div>
         ) : (
           <div className="div-list-technologies">
